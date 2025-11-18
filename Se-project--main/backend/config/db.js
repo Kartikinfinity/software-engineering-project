@@ -8,14 +8,11 @@ const connectDB = async () => {
       throw new Error("MONGO_URL is not defined");
     }
 
-    await mongoose.connect(MONGO, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log("MongoDB Connected");
+    await mongoose.connect(MONGO);
+
+    console.log("MongoDB Connected Successfully!");
   } catch (error) {
     console.error("DB Connection Error:", error.message);
-    process.exit(1);
   }
 };
 
